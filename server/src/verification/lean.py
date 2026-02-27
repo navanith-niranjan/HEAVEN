@@ -18,9 +18,9 @@ into valid Lean 4 syntax — is handled by the model layer (not implemented here
 This module assumes it receives valid Lean 4 source as input.
 """
 
+import os
 import subprocess
 import tempfile
-import os
 from dataclasses import dataclass
 from pathlib import Path
 

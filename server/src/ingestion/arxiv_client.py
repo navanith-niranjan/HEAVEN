@@ -4,10 +4,10 @@ Fetches paper metadata and content transiently — nothing is stored except
 what the caller explicitly persists (metadata + extracted concepts).
 """
 
-import arxiv
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Iterator
+
+import arxiv
 
 
 @dataclass

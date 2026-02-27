@@ -10,7 +10,9 @@ once that is implemented. The interface is stable.
 from dataclasses import dataclass, field
 from typing import Literal
 
-ConceptType = Literal["theorem", "definition", "lemma", "axiom", "conjecture", "corollary", "proposition"]
+ConceptType = Literal[
+    "theorem", "definition", "lemma", "axiom", "conjecture", "corollary", "proposition"
+]
 
 
 @dataclass
@@ -43,10 +45,10 @@ def extract_from_text(
         lemma, proof), extract statement + label, infer concept_type from
         environment name.
     """
-    raise NotImplementedError(
-        "extract_from_text requires the model layer. "
-        "Implement using an LLM with structured output once the model layer is ready."
-    )
+    from src.model.extraction.concept_extractor import extract_concepts
+    from src.model.providers.registry import primary
+
+    return extract_concepts(content, provider=primary, source_hint=source_hint)
 
 
 def build_concept_embedding_text(

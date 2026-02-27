@@ -6,8 +6,9 @@ Used for:
 - Fetching structured results for a math concept or query
 """
 
-import wolframalpha
 from dataclasses import dataclass
+
+import wolframalpha
 
 from src.config import settings
 

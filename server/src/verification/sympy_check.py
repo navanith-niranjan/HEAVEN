@@ -7,7 +7,8 @@ Catches most hallucinations and obvious errors early.
 """
 
 from dataclasses import dataclass
-from sympy import SympifyError, simplify, sympify
+
+from sympy import simplify
 from sympy.parsing.latex import parse_latex
 
 

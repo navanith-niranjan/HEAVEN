@@ -95,7 +95,9 @@ class Concept(Base):
     chroma_embedding_id: Mapped[Optional[str]] = mapped_column(String(36), nullable=True)
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
-    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_now, onupdate=_now
+    )
 
     # Graph relationships originating from this concept
     outgoing_relationships: Mapped[list["ConceptRelationship"]] = relationship(
@@ -198,7 +200,9 @@ class Discovery(Base):
     lean_output: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
-    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_now, onupdate=_now
+    )
 
     base_concept: Mapped[Optional[Concept]] = relationship("Concept")
     impacts: Mapped[list["DiscoveryImpact"]] = relationship(
@@ -221,7 +225,10 @@ class DiscoveryImpact(Base):
         String(36), ForeignKey("concepts.id", ondelete="CASCADE"), nullable=False
     )
     impact_type: Mapped[str] = mapped_column(
-        Enum("extends", "contradicts", "generalizes", "enables", "invalidates", name="impact_type_enum"),
+        Enum(
+            "extends", "contradicts", "generalizes", "enables", "invalidates",
+            name="impact_type_enum",
+        ),
         nullable=False,
     )
     description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)

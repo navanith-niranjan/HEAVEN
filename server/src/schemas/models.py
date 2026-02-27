@@ -2,10 +2,12 @@
 
 from datetime import datetime
 from typing import Literal, Optional
+
 from pydantic import BaseModel, Field
 
-
-ConceptType = Literal["theorem", "definition", "lemma", "axiom", "conjecture", "corollary", "proposition"]
+ConceptType = Literal[
+    "theorem", "definition", "lemma", "axiom", "conjecture", "corollary", "proposition"
+]
 SourceType = Literal["arxiv", "scholar", "wolfram", "mathworld", "dlmf", "other"]
 LeanStatus = Literal["unverified", "pending", "verified", "failed"]
 SympyStatus = Literal["unchecked", "passed", "failed"]

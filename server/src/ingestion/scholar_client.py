@@ -7,14 +7,18 @@ scraping which is brittle and violates ToS.
 Docs: https://api.semanticscholar.org/graph/v1
 """
 
-import httpx
 from dataclasses import dataclass
 from datetime import datetime
+
+import httpx
 
 from src.config import settings
 
 _BASE_URL = "https://api.semanticscholar.org/graph/v1"
-_FIELDS = "paperId,externalIds,title,abstract,authors,year,publicationDate,fieldsOfStudy,url,openAccessPdf"
+_FIELDS = (
+    "paperId,externalIds,title,abstract,authors,year,"
+    "publicationDate,fieldsOfStudy,url,openAccessPdf"
+)
 
 
 @dataclass

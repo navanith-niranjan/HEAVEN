@@ -9,11 +9,12 @@ Key operations:
 - Dependency traversal: what does a concept depend on (and transitively)
 """
 
-import networkx as nx
 from typing import Literal
 
-from src.db.sqlite.session import get_session
+import networkx as nx
+
 from src.db.sqlite.models import Concept, ConceptRelationship
+from src.db.sqlite.session import get_session
 
 ImpactType = Literal["extends", "contradicts", "generalizes", "enables", "invalidates"]
 
