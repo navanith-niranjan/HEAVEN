@@ -90,6 +90,11 @@ data/
 storage/
 chroma/
 chromadb/
+chroma_data/
+
+# SQLite WAL/SHM journal files
+*.db-shm
+*.db-wal
 
 # =========================
 # Node / frontend tooling (if present)
